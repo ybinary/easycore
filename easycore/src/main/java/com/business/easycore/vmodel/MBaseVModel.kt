@@ -7,9 +7,10 @@ class MBaseVModel : ViewModel() {
 
     private var mContext: Context? = null
 
-    fun withContext(){
+    private var funContext: (() -> Context)? = null
 
-
+    fun withContext(function: () -> Context) {
+        funContext = function
     }
 
 

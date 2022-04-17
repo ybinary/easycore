@@ -2,10 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.business.easycore">
 
-    <application>
-        <activity
-            android:name=".MEasyCoreActivity"
-            android:exported="false" />
-    </application>
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
