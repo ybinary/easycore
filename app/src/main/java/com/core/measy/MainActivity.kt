@@ -4,9 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.SystemClock
 import android.util.Log
-import androidx.lifecycle.lifecycleScope
-import com.business.easycore.net.NetApiKtx
-import com.business.easycore.net.test.GithubSearch
+import com.business.easycore.h5.H5Api
 import com.core.measy.databinding.ActivityMainBinding
 import kotlinx.coroutines.*
 
@@ -19,19 +17,19 @@ class MainActivity : AppCompatActivity() {
         bootView = ActivityMainBinding.inflate(layoutInflater)
         setContentView(bootView.root)
 
-        NetApiKtx.init("https://api.github.com")
         bootView.mainBtnSearch.setOnClickListener {
             testMethod()
         }
+        H5Api.loadUrl(this,"")
     }
 
     private fun testMethod() {
-        lifecycleScope.launch {
-            var response = NetApiKtx.get(GithubSearch(bootView.mainEditSearch.text.toString()))
-            if (response.isSuccess()) {
-                response.body!!.string()
-            }
-        }
+//        lifecycleScope.launch {
+//            var response = NetApiKtx.get(GithubSearch(bootView.mainEditSearch.text.toString()))
+//            if (response.isSuccess()) {
+//                response.body!!.string()
+//            }
+//        }
     }
 
     private var mScope = CoroutineScope(Job() + Dispatchers.Main)

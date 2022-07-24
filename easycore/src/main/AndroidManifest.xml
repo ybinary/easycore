@@ -2,6 +2,34 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.business.easycore">
 
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".app.CoreApplication"
+        android:requestLegacyExternalStorage="true"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".h5.plugin.PluginActivity"
+            android:exported="false" />
+        <!-- 忽略网站显示警告 -->
+        <meta-data
+            android:name="android.webkit.WebView.EnableSafeBrowsing"
+            android:value="false" /> <!-- 不允许匿名上传诊断数据到google -->
+        <meta-data
+            android:name="android.webkit.WebView.MetricsOptOut"
+            android:value="true" />
+
+        <activity
+            android:name=".h5.ui.CloudH5Activity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".h5.ui.OptionActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
+    </application>
 
 </manifest>
